@@ -12,6 +12,10 @@ public class Musica {
         this.avaliacoes = new ArrayList<>();
     }
 
+    public String getNome() {
+        return nome;
+    }
+
     public Avaliacao getAvaliacaoUsuario(Usuario u) {
         Avaliacao avaliacao = null;
         for (Avaliacao a: avaliacoes) {

@@ -18,6 +18,18 @@ public class Usuario {
         this.favoritos = new ArrayList<>();
     }
 
+    public Musica getEscutando() {
+        return escutando;
+    }
+
+    public List<Musica> getFavoritos() {
+        return favoritos;
+    }
+
+    public List<Playlist> getPlaylists() {
+        return playlists;
+    }
+
     public boolean verificarLogin(String nome, String senha) {
         if ((nome == this.login) && (senha == this.senha)) {
             return true;
