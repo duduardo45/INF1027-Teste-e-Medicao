@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Playlist {
+    String nome;
     List<Musica> musicas;
 
-    public Playlist() {
+    public Playlist(String nome) {
+        this.nome = nome;
         this.musicas = new ArrayList<>();
     }
 

@@ -40,7 +40,7 @@ public class Musica {
     }
 
     public boolean avaliar(Usuario user, int estrelas) {
-        avaliacoes.add(new Avaliacao(estrelas,user));
+        avaliacoes.add(new Avaliacao(estrelas,user,this));
         return true;
     }
 }
