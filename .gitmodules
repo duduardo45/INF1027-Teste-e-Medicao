@@ -1,0 +1,3 @@
+[submodule "jump-king-tests/JumpKingAtHome"]
+	path = jump-king-tests/JumpKingAtHome
+	url = https://github.com/senweim/JumpKingAtHome.git
