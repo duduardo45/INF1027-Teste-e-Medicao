@@ -416,7 +416,7 @@ class GameTester:
             not self.game.king.isFalling
         )
     
-    def step(self, frames: int = 1) -> None:
+    def step(self, frames: int = 1, action: int = None) -> None:
         """
         Advance the game simulation by a specified number of frames.
         
@@ -426,6 +426,8 @@ class GameTester:
         
         Args:
             frames: Number of frames to advance (default: 1)
+            action: Optional action command to pass to game logic (default: None).
+                   Valid actions: 0='right', 1='left', 2='right+space', 3='left+space'
             
         Raises:
             RuntimeError: If game is not initialized
@@ -438,11 +440,13 @@ class GameTester:
             self.game.clock.tick(self.game.fps)
             # Skip _check_events() to prevent keyboard input from affecting the simulation
             if not os.environ["pause"]:
-                self.game._update_gamestuff()
+                self.game._update_gamestuff(action=action)
             
             self.game._update_gamescreen()
             self.game._update_guistuff()
-            self.game._update_audio()
+            # Skip audio processing in headless mode
+            if not self.headless:
+                self.game._update_audio()
             pygame.display.update()
     
     def run_with_input(self) -> None:
