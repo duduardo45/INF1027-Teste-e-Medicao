@@ -129,6 +129,10 @@ class GameTester:
             # (game initialization may have modified environment variables)
             self._configure_environment(self.fps, self.headless)
             
+            # Explicitly set fps on the game instance to ensure it takes effect
+            self.game.fps = self.fps
+            os.environ["fps"] = str(self.fps)
+            
         except ImportError as e:
             raise ImportError(f"Failed to import JumpKing module: {e}") from e
         except Exception as e:
@@ -437,7 +441,6 @@ class GameTester:
         
         # Advance frames with full game logic but no keyboard input
         for _ in range(frames):
-            self.game.clock.tick(self.game.fps)
             # Skip _check_events() to prevent keyboard input from affecting the simulation
             if not os.environ["pause"]:
                 self.game._update_gamestuff(action=action)

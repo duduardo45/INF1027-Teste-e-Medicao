@@ -3,12 +3,11 @@ import pygame
 from .game_tester import GameTester
 
 class AgenteTeste:
-    def __init__(self):
+    def __init__(self, headless=False, fps=60):
         """
         Initialize the test agent using GameTester.
         """
-        self.tester = GameTester(headless=False, fps=60)
-
+        self.tester = GameTester(headless=headless, fps=fps)
     def definir_estado_inicial(self, nivel, x, y):
         """
         Set the initial state of the game using GameTester.
